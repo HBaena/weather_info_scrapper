@@ -11,8 +11,8 @@ start:
 	@airflow db init
 	@airflow dags unpause weather_info
 	@airflow scheduler
-run:
-	PYTHONPATH=":."  poetry run python app.py $(city)
+run_dashboard:
+	PYTHONPATH=":."  poetry run python dashboard_app.py
 test:
 	PYTHONPATH=":." poetry run mamba $(tests) --format documentation --enable-coverage
 lint:
