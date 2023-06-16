@@ -83,3 +83,4 @@ Once server is running, enter into http://127.0.0.1:8050/
 - Dockerize
 - Change the workflow
     - Currently the project only have 2 airflow tasks: scrapping and save db resume. Scrapping task could be separated into: scrapp and save request json, retrieve info from http response and save into db in individual tasks
+- Add db migrations tool like [Alembic](https://alembic.sqlalchemy.org/en/latest/)
