@@ -1,7 +1,7 @@
-from unittest.mock import call, Mock
+from unittest.mock import Mock
 from mamba import before, context, describe, it
 
-from expects import be_false, be_none, expect, equal, be_true
+from expects import be_false, expect, equal, be_true
 
 from src.handler.save_db_resume.app import DBResumeSaver
 

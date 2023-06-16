@@ -41,6 +41,7 @@ class WeatherInfoExtractor:
     def execute(self):
         html_body = self.scrapper_adapter.get_html()
         weather_info = get_weather_info(self.scrapper_adapter) if html_body else None
+        print(weather_info)
         request_info = self.__save_json_file(weather_info)
         http_log = self.__save_http_response(request_info)
         if not weather_info:
@@ -53,7 +54,7 @@ class WeatherInfoExtractor:
             status_code=self.scrapper_adapter.http_response.status_code,
             request=format_request(self.scrapper_adapter.http_request),
             scrapped_info=weather_info.dict() if weather_info else None,
-            id=f"{datetime.now().isoformat()}{self.city}",
+            id=f"{datetime.now().isoformat()}-{self.city}",
         )
         error = self.document_storage_adapter.save_file(
             filename=f"{request_info.id}.json",
