@@ -26,7 +26,8 @@ dag = DAG(
     dag_id='weather_info',
     default_args=default_args,
     description='Scrapp weather info using app.py every hour',
-    schedule="@hourly"
+    schedule="@hourly",
+    catchup=False,
 )
 
 scrapping = PythonOperator(
